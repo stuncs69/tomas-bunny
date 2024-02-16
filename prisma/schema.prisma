@@ -1,5 +1,6 @@
 generator client {
   provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
 }
 
 datasource db {
@@ -9,6 +10,12 @@ datasource db {
 
 model Role {
   id        Int @id @default(autoincrement())
-  roleId    Int
-  discordId Int @unique
+  roleId    String
+  discordId String
+}
+
+model User {
+  id        Int @id @default(autoincrement())
+  discordId String
+  dillars   String
 }
